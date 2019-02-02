@@ -14,6 +14,7 @@ public class AboutTryWithResources {
             throw new WorkException("Exception thrown while working");
         }
 
+        @Override
         public void close() throws CloseException {
             throw new CloseException("Exception thrown while closing");
         }
@@ -47,7 +48,7 @@ public class AboutTryWithResources {
         } catch (IOException e) {
             line = "error";
         }
-        assertEquals(line, __);
+        assertEquals(line, "first line");
     }
 
     @Koan
@@ -60,7 +61,7 @@ public class AboutTryWithResources {
         } catch (FileNotFoundException e) {
             line = "no more leaking!";
         }
-        assertEquals(line, __);
+        assertEquals(line, "no more leaking!");
     }
 
     @Koan
@@ -83,7 +84,7 @@ public class AboutTryWithResources {
         } catch (IOException e) {
             line = "error";
         }
-        assertEquals(line, __);
+        assertEquals(line, "error");
     }
 
     @Koan
@@ -94,9 +95,10 @@ public class AboutTryWithResources {
         } catch (WorkException e) {
             message += e.getMessage() + " " + e.getSuppressed()[0].getMessage();
         } catch (CloseException e) {
-            message += e.getMessage();
+            // message += e.getMessage();
+            message += "Not here";
         }
-        assertEquals(message, __);
+        assertEquals(message, "Exception thrown while working Exception thrown while closing");
     }
 
 

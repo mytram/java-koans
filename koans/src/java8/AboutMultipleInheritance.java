@@ -31,7 +31,8 @@ public class AboutMultipleInheritance {
     @Koan
     public void multipleInheritance() {
         Minotaur minotaur = new Minotaur();
-        assertEquals(minotaur.sound(), __);
+        // Why are you looking for trouble in your design if it ever comes to this? 
+        assertEquals(minotaur.sound(), "moo");
     }
 
 }

@@ -6,13 +6,16 @@ import static com.sandwich.util.Assert.fail;
 
 public class AboutMocks {
 
+    @FunctionalInterface
     static interface Collaborator {
-        public void doBusinessStuff();
+        public boolean doBusinessStuff();
     }
 
     static class ExplosiveCollaborator implements Collaborator {
-        public void doBusinessStuff() {
+        @Override
+        public boolean doBusinessStuff() {
             fail("Default collaborator's behavior is complicating testing.");
+            return true;
         }
     }
 
@@ -30,6 +33,7 @@ public class AboutMocks {
         }
 
         public boolean doSomething() {
+            System.out.println("call here");
             c.doBusinessStuff();
             return true;
         }
@@ -40,7 +44,6 @@ public class AboutMocks {
         // HINT: pass a safe Collaborator implementation to constructor
         // new ClassUnderTest(new Collaborator(){... it should not be the
         // objective of this test to test that collaborator, so replace it
-        new ClassUnderTest().doSomething();
+        new ClassUnderTest(() -> { return false; }).doSomething();
     }
-
 }

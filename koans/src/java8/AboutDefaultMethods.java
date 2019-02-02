@@ -9,22 +9,18 @@ public class AboutDefaultMethods {
 
     @Koan
     public void interfaceDefaultMethod() {
-        StringUtil stringUtil = new StringUtil() {
-            @Override
-            public String reverse(String s) {
-                return new StringBuilder(s).reverse().toString();
-            }
-        };
+        StringUtil stringUtil = (String s) -> new StringBuilder(s).reverse().toString();
         String capitalizedReversed = stringUtil.capitalize(
                 stringUtil.reverse("gnirut"));
-        assertEquals(capitalizedReversed, __);
+        assertEquals(capitalizedReversed, "TURING");
     }
 
     @Koan
     public void interfaceStaticMethod() {
-        assertEquals(StringUtil.enclose("me"), __);
+        assertEquals(StringUtil.enclose("me"), "[me]");
     }
 
+    @FunctionalInterface
     interface StringUtil {
 
         //static method in interface
