@@ -27,7 +27,7 @@
         <suite class="AboutAutoboxing"/>
         <suite class="AboutCollections"/>
         <suite class="AboutComparison"/>
-        <suite class="AboutDates"/>
+        <!-- <suite class="AboutDates"/> -->
         <suite class="AboutEquality"/>
         <suite class="AboutFileIO"/>
         <suite class="AboutInnerClasses"/>

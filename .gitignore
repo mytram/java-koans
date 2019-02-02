@@ -17,3 +17,7 @@ lib/file-compiler/bin
 *.ipr
 *.iws
 .idea
+/my-koans/nbproject/private/
+koans/file.txt
+koans/SerializeFile
+
